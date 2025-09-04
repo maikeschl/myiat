@@ -39,7 +39,7 @@ define(['pipAPI', 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qualt
 		},	
 
 		base_url : {//Where are your images at?
-			image : 'https://github.com/maikeschl/myiat/'
+			image : 'https://cdn.jsdelivr.net/gh/maikeschl/myiat@main/'
 		} 
 	});
 });
