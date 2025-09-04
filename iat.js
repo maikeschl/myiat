@@ -1,45 +1,28 @@
-define(['pipAPI', 'https://baranan.github.io/minno-tasks/quiat8.js'], function(APIConstructor, iatExtension){
-    var API = new APIConstructor();
+define(['pipAPI','https://baranan.github.io/minno-tasks/quiat8.js'], 
+function(APIConstructor, iatExtension){
+  var API = new APIConstructor();
+  return iatExtension({
+    // isTouch: true, // uncomment if you allow phones/tablets
 
-	return iatExtension({
-		category1 : {
-			name : 'Black people', //Will appear in the data.
-			title : {
-				media : {word : 'Black people'}, //Name of the category presented in the task.
-				css : {color:'#31940F','font-size':'2em'}, //Style of the category title.
-				height : 4 //Used to position the "Or" in the combined block.
-			}, 
-			stimulusMedia : [ //Stimuli content as PIP's media objects
-    		    {image : 'black1.jpg'}, 
-    			{image : 'black2.jpg'}, 
-    			{image : 'black3.jpg'}, 
-    			{image : 'black4.jpg'}, 
-    			{image : 'black5.jpg'}, 
-    			{image : 'black6.jpg'}
-			], 
-			//Stimulus css (style)
-			stimulusCss : {color:'#31940F','font-size':'1.8em'}
-		},	
-		category2 :	{
-			name : 'White people', //Will appear in the data.
-			title : {
-				media : {word : 'White people'}, //Name of the category presented in the task.
-				css : {color:'#31940F','font-size':'2em'}, //Style of the category title.
-				height : 4 //Used to position the "Or" in the combined block.
-			}, 
-			stimulusMedia : [ //Stimuli content as PIP's media objects
-    		    {image : 'yf1.jpg'}, 
-    			{image : 'yf4.jpg'}, 
-    			{image : 'yf5.jpg'}, 
-    			{image : 'ym2.jpg'}, 
-    			{image : 'ym3.jpg'}, 
-    			{image : 'ym5.jpg'}			], 
-			//Stimulus css
-			stimulusCss : {color:'#31940F','font-size':'1.8em'}
-		},	
+    category1: {
+      name: 'Black people',
+      title: { media:{word:'Black people'}, css:{color:'#31940F','font-size':'2em'}, height:4 },
+      stimulusMedia: [
+        {word:'WordA1'},{word:'WordA2'},{word:'WordA3'},{word:'WordA4'},{word:'WordA5'},{word:'WordA6'}
+      ],
+      stimulusCss: {color:'#31940F','font-size':'1.8em'}
+    },
 
-		base_url : {//Where are your images at?
-			image : 'https://maikeschl.github.io/myiat/' 
-		} 
-	});
+    category2: {
+      name: 'White people',
+      title: { media:{word:'White people'}, css:{color:'#31940F','font-size':'2em'}, height:4 },
+      stimulusMedia: [
+        {word:'WordB1'},{word:'WordB2'},{word:'WordB3'},{word:'WordB4'},{word:'WordB5'},{word:'WordB6'}
+      ],
+      stimulusCss: {color:'#31940F','font-size':'1.8em'}
+    },
+
+    // No base_url needed when using words only
+    // base_url: { image: '' }
+  });
 });
