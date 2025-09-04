@@ -38,7 +38,7 @@ define(['pipAPI', 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qualt
 			stimulusCss : {color:'#31940F','font-size':'1.8em'}
 		},	
 
-		base_url : { image : 'https://cdn.jsdelivr.net/gh/maikeschl/myiat@main/' }
+		base_url: { image: 'https://cdn.jsdelivr.net/gh/maikeschl/myiat@main/' }
 
 	});
 });
