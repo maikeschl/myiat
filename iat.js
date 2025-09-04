@@ -2,7 +2,7 @@ define(['pipAPI','https://baranan.github.io/minno-tasks/quiat8.js'],
 function(APIConstructor, iatExtension){
   var API = new APIConstructor();
 
-  // Robust touch detection (phones/tablets and hybrids)
+  // auto-detect touch so one file works for desktop + mobile
   var isTouch =
     ('ontouchstart' in window) ||
     (navigator.maxTouchPoints > 0) ||
@@ -10,8 +10,9 @@ function(APIConstructor, iatExtension){
     (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 
   return iatExtension({
-    // Auto-switch UI: keyboard on desktop, tap targets on touch devices
-    isTouch: isTouch,
+    isTouch,               // tap UI on touch; keyboard on desktop
+    fullscreen: isTouch,   // optional: cleaner UX on phones
+
 
     // ---- Your categories (words) ----
     category1: {
