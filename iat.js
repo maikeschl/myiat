@@ -1,9 +1,19 @@
 define(['pipAPI','https://baranan.github.io/minno-tasks/quiat8.js'],
 function(APIConstructor, iatExtension){
   var API = new APIConstructor();
-  return iatExtension({
-    isTouch: true, // enables tap targets & touch instructions
 
+  // Robust touch detection (phones/tablets and hybrids)
+  var isTouch =
+    ('ontouchstart' in window) ||
+    (navigator.maxTouchPoints > 0) ||
+    (navigator.msMaxTouchPoints > 0) ||
+    (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
+  return iatExtension({
+    // Auto-switch UI: keyboard on desktop, tap targets on touch devices
+    isTouch: isTouch,
+
+    // ---- Your categories (words) ----
     category1: {
       name: 'Black people',
       title: { media:{word:'Black people'}, css:{color:'#31940F','font-size':'2em'}, height:4 },
@@ -13,6 +23,7 @@ function(APIConstructor, iatExtension){
       ],
       stimulusCss: {color:'#31940F','font-size':'1.8em'}
     },
+
     category2: {
       name: 'White people',
       title: { media:{word:'White people'}, css:{color:'#31940F','font-size':'2em'}, height:4 },
@@ -22,5 +33,9 @@ function(APIConstructor, iatExtension){
       ],
       stimulusCss: {color:'#31940F','font-size':'1.8em'}
     }
+
+    // Note: no base_url needed for words
+    // Optional: fullscreen on phones to reduce distractions:
+    // fullscreen: isTouch
   });
 });
